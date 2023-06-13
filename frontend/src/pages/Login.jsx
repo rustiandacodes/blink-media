@@ -26,13 +26,13 @@ const Login = () => {
                 <label htmlFor="name" className="md:text-sm text-xs font-bold mb-2 text-green-darker">
                   Email <span className="text-red-600">*</span>
                 </label>
-                <input type="email" className="border-2 h-12 rounded-2xl md:text-sm text-xs px-3" placeholder="Enter email here ..." />
+                <input type="email" className="border-2 h-12 rounded-2xl md:text-sm text-xs px-3 focus:border-green-forest focus:ring-1 focus:ring-green-forest focus:outline-none" placeholder="Enter email here ..." />
               </div>
               <div className="flex flex-col mb-5">
                 <label htmlFor="name" className="md:text-sm text-xs font-bold mb-2 text-green-darker">
                   Password <span className="text-red-600">*</span>
                 </label>
-                <input type="password" className="border-2 h-12 rounded-2xl md:text-sm text-xs px-3" placeholder="***********" />
+                <input type="password" className="border-2 h-12 rounded-2xl md:text-sm text-xs px-3 focus:border-green-forest focus:ring-1 focus:ring-green-forest focus:outline-none" placeholder="***********" />
               </div>
               <button className="w-full h-12 text-center bg-green-forest text-white font-bold rounded-2xl md:text-base text-sm">Login</button>
             </form>
