@@ -7,7 +7,7 @@ const Signup = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="lg:h-screen flex justify-center items-center lg:p-0 p-5">
+      <div className="lg:h-screen flex justify-center items-center lg:p-0 p-5 absolute top-0 right-0 left-0 bg-white">
         <div className="container mx-auto flex lg:flex-row flex-col-reverse justify-end items-center gap-8 h-[80%] overflow-hidden shadow-md text-green-darker rounded-3xl border-2">
           <div className="lg:w-[40%] sm:w-[80%] p-10 ">
             <h1 className="md:text-3xl text-xl text-center font-bold">Create your account</h1>
