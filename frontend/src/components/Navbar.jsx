@@ -9,7 +9,7 @@ const Navbar = () => {
     <>
       <header className="py-8 shadow-md">
         <div className="container mx-auto flex justify-between items-center px-10 md:px-0">
-          <p className="text-2xl font-bold text-green-forest cursor-pointer">
+          <p className="text-xl md:2xl font-bold text-green-forest cursor-pointer">
             *Blink <span className="text-green-darker">Media</span>
           </p>
           <div className="w-1/3 items-center rounded-full border-2 px-5 hidden">
@@ -21,13 +21,13 @@ const Navbar = () => {
             <button className="px-5 py-2 rounded-xl border-[3px] border-green-forest text-green-forest ">Sign Up</button>
           </div>
           <div id="after-login" className="flex items-center gap-5">
-            <Search color="#395B64" size={28} className="cursor-pointer md:hidden" />
+            <Search color="#395B64" size={24} className="cursor-pointer md:hidden" />
             <div id="create-article" className="flex gap-2 items-center cursor-pointer">
-              <Edit color="#395B64" size={28} className="cursor-pointer" />
+              <Edit color="#395B64" size={24} className="cursor-pointer" />
               <p className="text-base md:block hidden text-green-darker font-semibold">Write Article</p>
             </div>
             <div className="flex gap-2 items-center">
-              <img src={profilePicture} alt="profile-piccture" className="w-10 rounded-full border-2 border-gray shadow-sm cursor-pointer" />
+              <img src={profilePicture} alt="profile-piccture" className="w-8 rounded-full border-2 border-gray shadow-sm cursor-pointer" />
               <ChevronDown color="gray" size={20} className="cursor-pointer" />
             </div>
           </div>

@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import CreateArticle from './pages/CreateArticle';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/profile/:user_id" element={''}></Route>
         <Route path="/article/:article_id" element={''}></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 };
