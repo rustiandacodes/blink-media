@@ -1,8 +1,8 @@
 import React from 'react';
 import { Search } from 'react-feather';
 import { Image } from 'react-feather';
-import blogs from '../services/Article';
 import categories from '../services/Categories';
+import blogs from '../services/Article';
 import profilePicture from '../assets/profile-picture.png';
 
 const Home = () => {
@@ -39,14 +39,14 @@ const Home = () => {
         <div className="flex flex-wrap text-green-darker">
           {blogs.map((blog) => {
             return (
-              <div className="lg:w-1/4 p-2 sm:w-1/3 w-1/2 mb-5">
+              <div className="lg:w-1/4 p-2 sm:w-1/3 w-1/2 mb-8">
                 <img src={`https://source.unsplash.com/random/500x500/?${blog.category}`} className="rounded-3xl mb-3" alt="thumbnail" />
                 <div className="flex items-center gap-3 text-xs lg:text-base mb-3">
                   <div className="w-8 rounded-full overflow-hidden">
                     <img src={profilePicture} alt="profile" />
                   </div>
-                  <p className="font-bold">{blog.author}</p>
-                  <p> 10 days ago</p>
+                  <p className="font-bold text-xs sm:text-base">{blog.author}</p>
+                  <p className="text-xs hidden lg:block sm:text-base"> 10 days ago</p>
                 </div>
                 <h3 className="font-bold text-base lg:text-xl mb-3 truncate">{blog.title}</h3>
                 <p className="mb-3 text-xs lg:text-base">{blog.content}</p>

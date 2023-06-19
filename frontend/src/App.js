@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import CreateArticle from './pages/CreateArticle';
+import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -18,7 +19,7 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/create-article" element={<CreateArticle />}></Route>
         <Route path="/update-article/:article_id" element={<CreateArticle />}></Route>
-        <Route path="/profile/:user_id" element={''}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
         <Route path="/article/:article_id" element={''}></Route>
       </Routes>
       <Footer />

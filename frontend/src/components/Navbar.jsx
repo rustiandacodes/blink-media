@@ -2,7 +2,6 @@ import React from 'react';
 import { Search } from 'react-feather';
 import { Edit } from 'react-feather';
 import { ChevronDown } from 'react-feather';
-import profilePicture from '../assets/profile-picture.png';
 
 const Navbar = () => {
   return (
@@ -27,7 +26,7 @@ const Navbar = () => {
               <p className="text-base md:block hidden text-green-darker font-semibold">Write Article</p>
             </div>
             <div className="flex gap-2 items-center">
-              <img src={profilePicture} alt="profile-piccture" className="w-8 rounded-full border-2 border-gray shadow-sm cursor-pointer" />
+              <img src={`https://source.unsplash.com/random/500x500/?profile`} alt="profile-piccture" className="w-8 rounded-full border-2 border-gray shadow-sm cursor-pointer" />
               <ChevronDown color="gray" size={20} className="cursor-pointer" />
             </div>
           </div>
