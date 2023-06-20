@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <div className=" bg-green-forest">
         <div className="py-32 container mx-auto px-10 text-center text-white">
-          <h1 className="font-bold text-3xl">
+          <h1 className="font-bold text-4xl">
             Welcome to <span>*Blink</span> Media!
           </h1>
           <p className="my-5">Unlocking Ideas, Inspiring Minds: Your Gateway to Limitless Knowledge 🧠</p>
