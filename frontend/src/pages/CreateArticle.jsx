@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useGeneralContext } from '../hooks/useGeneralContext';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 const parse = require('html-react-parser');
@@ -6,7 +7,14 @@ const parse = require('html-react-parser');
 const CreateArticle = () => {
   const [value, setValue] = useState('');
   const [submit, setSubmit] = useState('');
-  console.log(value, parse(submit));
+  // console.log(value, parse(submit));
+  const { dispatch } = useGeneralContext();
+
+  useEffect(() => {
+    dispatch({ type: 'SET_NAVBAR_SEARCH', payload: false });
+  }, [dispatch]);
+  
+  console.log(parse(submit));
 
   return (
     <>

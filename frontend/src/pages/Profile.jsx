@@ -1,7 +1,12 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useGeneralContext } from '../hooks/useGeneralContext';
 import blogs from '../services/Article';
 
 const Profile = () => {
+  const { dispatch } = useGeneralContext();
+  useEffect(() => {
+    dispatch({ type: 'SET_NAVBAR_SEARCH', payload: true });
+  }, [dispatch]);
   return (
     <>
       {/* profile */}
@@ -11,7 +16,7 @@ const Profile = () => {
             <img src={`https://source.unsplash.com/random/1920x1000/?nature`} className="w-full" alt="thumbnail" />
           </div>
           <div className="md:w-32 w-28 rounded-full overflow-hidden bg-white border-gray-50 shadow-md absolute left-[10%] -bottom-14 border-[0.4rem]">
-            <img src={`https://source.unsplash.com/random/500x500/?profile`} alt="profile" />
+            <img src={`https://source.unsplash.com/random/500x500/?profile`} className="w-[500px]" alt="profile" />
           </div>
         </div>
         <div className="flex justify-end container mx-auto px-10 md:px-0">

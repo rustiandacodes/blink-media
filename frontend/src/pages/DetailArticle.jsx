@@ -1,9 +1,14 @@
-import React from 'react';
 import { Share2 } from 'react-feather';
 import { MessageCircle } from 'react-feather';
 import { ThumbsUp } from 'react-feather';
+import { useGeneralContext } from '../hooks/useGeneralContext';
+import { useEffect } from 'react';
 
 const DetailArticle = () => {
+  const { dispatch } = useGeneralContext();
+  useEffect(() => {
+    dispatch({ type: 'SET_NAVBAR_SEARCH', payload: true });
+  }, [dispatch]);
   return (
     <>
       <div className="container px-10 lg:px-0 mx-auto max-w-6xl md:py-20 py-12 text-green-darker">
@@ -27,7 +32,7 @@ const DetailArticle = () => {
           <div className="w-full h-[1px] bg-gray-300"></div>
         </div>
         <div className="">
-          <img src={'https://source.unsplash.com/random/1900x800/?coding'} className="rounded-3xl" alt="thumbnail" />
+          <img src={'https://source.unsplash.com/random/1900x800/?coding'} className="lg:rounded-3xl rounded-xl" alt="thumbnail" />
         </div>
         <div className="mt-8">
           <p className="text-sm md:text-base">
