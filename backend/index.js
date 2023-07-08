@@ -1,33 +1,31 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const articleRoutes = require('./routes/article');
 
 // express app
 const app = express();
+
+app.use(express.json());
+
 app.get('/', (req, res) => {
-  res.json({ msg: 'welcom to app' });
+  res.json({ mssg: 'berhasil' });
 });
 
-app.listen(process.env.PORT, () => {
-  console.log('listen on', process.env.PORT);
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
 
-// app.use(express.json());
+app.use('/api/article', articleRoutes);
 
-// app.use((req, res, next) => {
-//   console.log(req.path, req.method);
-//   next();
-// });
-
-// app.use('/api/article', articleRoutes);
-
-// mongoose
-//   .connect(process.env.MONGO_URI)
-//   .then(() => {
-//     app.listen(process.env.PORT, () => {
-//       console.log('listen on port', processs.env.PORT);
-//     });
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log('connect to db & listen on port', process.env.PORT);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
