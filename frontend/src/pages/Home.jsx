@@ -3,15 +3,26 @@ import { Search } from 'react-feather';
 import { Image } from 'react-feather';
 import categories from '../services/Categories';
 import blogs from '../services/Article';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useGeneralContext } from '../hooks/useGeneralContext';
 
 const Home = () => {
   const { dispatch } = useGeneralContext();
+  const [article, setArticle] = useState([]);
 
   useEffect(() => {
+    const fetchArticle = async () => {
+      const response = await fetch('api/article');
+      const json = await response.json();
+      if (response.ok) {
+        setArticle(json);
+      }
+    };
+    fetchArticle();
     dispatch({ type: 'SET_NAVBAR_SEARCH', payload: false });
   }, [dispatch]);
+
+  console.log(article);
 
   return (
     <>
@@ -43,7 +54,7 @@ const Home = () => {
           <Image size={32} />
           <h2 className="text-xl md:text-3xl font-bold text-green-darker">Latest Post</h2>
         </div>
-        <div className="flex flex-wrap justify-center gap-2 text-green-darker">
+        <div className="flex flex-wrap justify-center lg:gap-2 text-green-darker">
           {blogs.map((blog) => {
             return (
               <div className="lg:w-[24%] p-2 sm:w-1/3 w-1/2 mb-8">
