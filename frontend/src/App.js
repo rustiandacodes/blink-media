@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DetailArticle from './pages/DetailArticle';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/update-article/:article_id" element={<CreateArticle />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/article" element={<DetailArticle />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
       <Footer />
     </Router>

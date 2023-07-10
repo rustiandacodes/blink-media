@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { GeneralContextProvider } from './context/generalContext';
+import { ArticleContextProvider } from './context/articleContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GeneralContextProvider>
-      <App />
+      <ArticleContextProvider>
+        <App />
+      </ArticleContextProvider>
     </GeneralContextProvider>
   </React.StrictMode>
 );
