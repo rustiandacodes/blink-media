@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DetailArticle from './pages/DetailArticle';
 import Dashboard from './pages/Dashboard';
+import EditAricle from './pages/EditAricle';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/article" element={<DetailArticle />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/edit-article/:id" element={<EditAricle />}></Route>
       </Routes>
       <Footer />
     </Router>

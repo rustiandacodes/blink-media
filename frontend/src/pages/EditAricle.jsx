@@ -2,24 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { useGeneralContext } from '../hooks/useGeneralContext';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useParams } from 'react-router';
 // const parse = require('html-react-parser');
 
-const CreateArticle = () => {
+const EditAricle = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [category, setCategory] = useState('');
   const author = 'Adzeni Rustianda';
   const { dispatch } = useGeneralContext();
+  const params = useParams();
+
+  console.log({ title, body, category });
 
   useEffect(() => {
+    const fetchArticle = async () => {
+      const response = await fetch('/api/article/' + params.id);
+      const json = await response.json();
+      console.log(json);
+      if (response.ok) {
+        setTitle(json.title);
+        setBody(json.body);
+        setCategory(json.category);
+      }
+    };
+
+    fetchArticle();
+
     dispatch({ type: 'SET_NAVBAR_SEARCH', payload: false });
-  }, [dispatch]);
+  }, [dispatch, params.id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const article = { title, body, author, category };
-    const response = await fetch('api/article', {
-      method: 'POST',
+    const response = await fetch('/api/article/' + params.id, {
+      method: 'PATCH',
       body: JSON.stringify(article),
       headers: {
         'Content-type': 'application/json',
@@ -30,9 +47,6 @@ const CreateArticle = () => {
 
     if (response.ok) {
       console.log(json);
-      setBody('');
-      setTitle('');
-      setCategory('');
     }
   };
 
@@ -76,4 +90,4 @@ const CreateArticle = () => {
   );
 };
 
-export default CreateArticle;
+export default EditAricle;

@@ -7,6 +7,17 @@ const getAllArticle = async (req, res) => {
   res.status(200).json(article);
 };
 
+// get specific article
+const getArticle = async (req, res) => {
+  const { id } = req.params;
+
+  !mongoose.Types.ObjectId.isValid(id) ? res.status(404).json({ error: 'No Such a article' }) : '';
+
+  const article = await Article.findById(id);
+
+  !article ? res.status(404).json({ error: 'No Such a article' }) : res.status(200).json(article);
+};
+
 // create article
 const createArticle = async (req, res) => {
   const { title, body, author, category } = req.body;
@@ -68,6 +79,7 @@ const deleteArticle = async (req, res) => {
 
 module.exports = {
   createArticle,
+  getArticle,
   getAllArticle,
   deleteArticle,
   updateArticle,

@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
 import { useArticleContext } from '../hooks/useArticleContext';
+import { useNavigate } from 'react-router';
 import { Edit3 } from 'react-feather';
 import { Trash2 } from 'react-feather';
 
 const Dashboard = () => {
   const { articles, dispatch } = useArticleContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchArticle = async () => {
       const response = await fetch('api/article');
-
       const json = await response.json();
 
       if (response.ok) {
@@ -32,7 +33,11 @@ const Dashboard = () => {
     }
   };
 
-  console.log(articles);
+  const handleEdit = (article) => {
+    dispatch({ type: 'EDIT_ARTICLE', payload: article });
+    navigate(`/edit-article/${article}`);
+  };
+
   return (
     <div className="container h-screen mx-auto px-8 md:px-0 py-20 text-green-darker">
       <p className=" font-bold text-2xl pb-10">Dashboard</p>
@@ -42,7 +47,12 @@ const Dashboard = () => {
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">{article.title}</h3>
               <div className="flex gap-3">
-                <div className="flex gap-1 bg-sky-500 text-white p-2 rounded-lg cursor-pointer">
+                <div
+                  className="flex gap-1 bg-sky-500 text-white p-2 rounded-lg cursor-pointer"
+                  onClick={() => {
+                    handleEdit(article._id);
+                  }}
+                >
                   <Edit3 size={20} />
                   <span>Edit</span>
                 </div>
