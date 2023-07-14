@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useParams } from 'react-router';
 // const parse = require('html-react-parser');
-
+import Notif from '../components/Notif';
 const EditAricle = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
@@ -12,6 +12,11 @@ const EditAricle = () => {
   const author = 'Adzeni Rustianda';
   const { dispatch } = useGeneralContext();
   const params = useParams();
+
+  const [notif, setShowNotif] = useState(false);
+  const [message, setMessage] = useState();
+  const successMessage = '✅ Article succesfully updated!';
+  const errorMesage = '❌ Failed to add update!';
 
   console.log({ title, body, category });
 
@@ -43,16 +48,25 @@ const EditAricle = () => {
       },
     });
 
+    setShowNotif(true);
+    setTimeout(() => {
+      setShowNotif(false);
+    }, 5000);
+
     const json = await response.json();
 
     if (response.ok) {
       console.log(json);
+      setMessage(successMessage);
+    } else {
+      setMessage(errorMesage);
     }
   };
 
   return (
     <>
       <div className="container mx-auto px-8 md:px-0 py-20">
+        <Notif className={`my-5 ${notif === true ? 'block' : 'hidden'} ${message === successMessage ? 'bg-teal-500' : 'bg-yellow-400'} `} message={message} />
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label className="font-bold text-base mb-3">Title</label>

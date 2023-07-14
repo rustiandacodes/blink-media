@@ -4,12 +4,19 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 // const parse = require('html-react-parser');
 
+import Notif from '../components/Notif';
+
 const CreateArticle = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [category, setCategory] = useState('');
   const author = 'Adzeni Rustianda';
   const { dispatch } = useGeneralContext();
+
+  const [notif, setShowNotif] = useState(false);
+  const [message, setMessage] = useState();
+  const successMessage = '✅ Article succesfully added!';
+  const errorMesage = '❌ Failed to add article!';
 
   useEffect(() => {
     dispatch({ type: 'SET_NAVBAR_SEARCH', payload: false });
@@ -26,6 +33,11 @@ const CreateArticle = () => {
       },
     });
 
+    setShowNotif(true);
+    setTimeout(() => {
+      setShowNotif(false);
+    }, 5000);
+
     const json = await response.json();
 
     if (response.ok) {
@@ -33,6 +45,9 @@ const CreateArticle = () => {
       setBody('');
       setTitle('');
       setCategory('');
+      setMessage(successMessage);
+    } else {
+      setMessage(errorMesage);
     }
   };
 
@@ -40,6 +55,7 @@ const CreateArticle = () => {
     <>
       <div className="container mx-auto px-8 md:px-0 py-20">
         <form onSubmit={handleSubmit}>
+          <Notif className={`my-5 ${notif === true ? 'block' : 'hidden'} ${message === successMessage ? 'bg-teal-500' : 'bg-yellow-400'} `} message={message} />
           <div className="flex flex-col">
             <label className="font-bold text-base mb-3">Title</label>
             <input
