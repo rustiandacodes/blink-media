@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/create-article" element={<CreateArticle />}></Route>
         <Route path="/update-article/:article_id" element={<CreateArticle />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
-        <Route path="/article" element={<DetailArticle />}></Route>
+        <Route path="/article/:id" element={<DetailArticle />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/edit-article/:id" element={<EditAricle />}></Route>
       </Routes>

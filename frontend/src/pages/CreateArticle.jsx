@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useGeneralContext } from '../hooks/useGeneralContext';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-// const parse = require('html-react-parser');
 
 import Notif from '../components/Notif';
 
@@ -46,7 +45,8 @@ const CreateArticle = () => {
       setTitle('');
       setCategory('');
       setMessage(successMessage);
-    } else {
+    }
+    if (json.error) {
       setMessage(errorMesage);
     }
   };

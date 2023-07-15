@@ -52,7 +52,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container h-screen mx-auto px-8 md:px-0 py-20 text-green-darker">
+    <div className="container min-h-screen mx-auto px-8 md:px-0 py-20 text-green-darker">
       <p className=" font-bold text-2xl mb-10">Dashboard</p>
       <Notif className={`my-5 ${notif === true ? 'block' : 'hidden'} ${message === successMessage ? 'bg-teal-500' : 'bg-yellow-400'} `} message={message} />
       {articles.map((article) => {

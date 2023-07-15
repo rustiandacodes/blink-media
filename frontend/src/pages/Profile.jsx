@@ -71,7 +71,7 @@ const Profile = () => {
                   <p className="text-xs hidden lg:block sm:text-base"> 10 days ago</p>
                 </div>
                 <h3 className="font-bold text-base lg:text-xl mb-3 truncate">{blog.title}</h3>
-                <p className="mb-3 text-xs lg:text-base">{blog.content}</p>
+                <p className="mb-3 text-xs lg:text-base">{blog.body}</p>
                 <span className="text-xs font-bold cursor-pointer text-green-forest border-2 border-green-forest py-1 px-3 rounded-md">{blog.category}</span>
               </div>
             );

@@ -7,6 +7,10 @@ export const articleReducer = (state, action) => {
       return {
         articles: action.payload,
       };
+    case 'SET_DETAIL_ARTICLE':
+      return {
+        detailArticle: action.payload,
+      };
     case 'DELETE_ARTICLES':
       return {
         articles: state.articles.filter((w) => w._id !== action.payload._id),
